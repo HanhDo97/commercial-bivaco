@@ -2,84 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PriceQuote;
 use Illuminate\Http\Request;
+use App\Services\PriceQuoteService;
 
 class PriceQuoteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public $quoteService;
+    public function __construct(PriceQuoteService $quoteService)
     {
-        //
+        $this->quoteService = $quoteService;
+    }
+    public function listQuote()
+    {
+        $listQuote = $this->quoteService->listQuote();
+        return $listQuote;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function showForm()
     {
-        //
+        return 'view form create';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function storeQuote(Request $request)
     {
-        //
-    }
+        $quote = $this->quoteService->storeQuote($request);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PriceQuote  $priceQuote
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PriceQuote $priceQuote)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PriceQuote  $priceQuote
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PriceQuote $priceQuote)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PriceQuote  $priceQuote
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, PriceQuote $priceQuote)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PriceQuote  $priceQuote
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PriceQuote $priceQuote)
-    {
-        //
+        return $quote;
     }
 }

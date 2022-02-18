@@ -15,6 +15,6 @@ class PriceQuoteSeeder extends Seeder
      */
     public function run()
     {
-        PriceQuote::factory(10)->create();
+       // PriceQuote::factory(10)->create();
     }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('price-quote_id')->nullable();
+            $table->bigInteger('priceQuote_id')->nullable();
             $table->string('name');
             $table->string('address');
             $table->char('phoneNumber');

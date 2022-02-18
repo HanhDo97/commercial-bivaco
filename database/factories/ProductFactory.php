@@ -21,7 +21,7 @@ class ProductFactory extends Factory
         $faker = \Faker\Factory::create();
         return [
             'productName' => "Product Name",
-            'price-quote_id' => $faker->randomDigitNot(0),
+        //    'priceQuote_id' => $faker->randomDigitNot(0),
             'productNumber' => $faker->address,
             'image' => $faker->url,
             'productIntroduce' => $faker->text($maxNbChars = 200),

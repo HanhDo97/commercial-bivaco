@@ -18,7 +18,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('price-quote_id')->nullable();
+            $table->bigInteger('priceQuote_id')->nullable();
             $table->string('productName');
             $table->char('productNumber');
             $table->char('image');

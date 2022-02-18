@@ -11,11 +11,11 @@ class PriceQuote extends Model
     protected $guarded = [];
     public function products()
     {
-        return $this->hasMany(Product::class, 'price-quote_id');
+        return $this->hasMany(Product::class, 'priceQuote_id');
     }
 
     public function customers()
     {
-        return $this->hasMany(Customer::class, 'price-quote_id');
+        return $this->hasMany(Customer::class, 'priceQuote_id');
     }
 }

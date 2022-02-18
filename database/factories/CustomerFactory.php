@@ -21,7 +21,7 @@ class CustomerFactory extends Factory
         $faker = \Faker\Factory::create();
         return [
             'name' => $faker->name,
-            'price-quote_id' => $faker->randomDigitNot(0),
+         //   'priceQuote_id' => $faker->randomDigitNot(0),
             'address' => $faker->address,
             'phoneNumber' => $faker->phoneNumber,
             'taxNumber' => $this->generateRandomString(10)

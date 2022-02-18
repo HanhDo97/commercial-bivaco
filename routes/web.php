@@ -1,12 +1,11 @@
 <?php
 
-
-use App\Models\Customer;
-use App\Models\PriceQuote;
-use App\Models\Product;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PriceQuoteController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
 
-    /*
+/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -17,10 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-    //usage 
-;
 Route::get('/', function () {
-    $priceQuote = PriceQuote::find(1);
-    return $priceQuote;
+       return view('welcome');
 });
+
+Route::get('/customers', [CustomerController::class, 'listCustomer']);
+Route::get('/customer-create', [CustomerController::class], 'showForm');
+Route::post('/customer-store', [CustomerController::class, 'storeCustomer']);
+
+Route::get('/products', [ProductController::class, 'listProduct']);
+Route::get('/product-create', [ProductController::class, 'showForm']);
+Route::post('/product-store', [ProductController::class, 'storeProduct']);
+
+Route::get('/price-quotes', [PriceQuoteController::class, 'listQuote']);
+Route::get('/price-quotes-create', [PriceQuoteController::class, 'showForm']);
+Route::post('/price-quotes-store', [PriceQuoteController::class, 'storeQuote']);
