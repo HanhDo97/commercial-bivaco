@@ -50,13 +50,20 @@ class PriceQuoteService
             $customer->save();
         }
 
+        return $quote;
+    }
+
+    public function findById($id)
+    {
+        $quote = PriceQuote::find($id);
+
+        if(!$quote) return 'no quote with id supplied in database';
         return [
             'quote' => $quote->nameQuote,
             'products' => $quote->products,
             'customers' => $quote->customers
         ];
     }
-
     public function convertStringToArray($string)
     {
         $array = json_decode($string);

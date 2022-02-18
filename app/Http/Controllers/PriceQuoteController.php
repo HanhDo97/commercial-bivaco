@@ -29,4 +29,10 @@ class PriceQuoteController extends Controller
 
         return $quote;
     }
+    public function showQuote($id)
+    {
+        $quote = $this->quoteService->findById($id);
+
+        return $quote;
+    }
 }

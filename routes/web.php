@@ -30,4 +30,5 @@ Route::post('/product-store', [ProductController::class, 'storeProduct']);
 
 Route::get('/price-quotes', [PriceQuoteController::class, 'listQuote']);
 Route::get('/price-quotes-create', [PriceQuoteController::class, 'showForm']);
+Route::get('/price-quotes-detail/{id}', [PriceQuoteController::class, 'showQuote']);
 Route::post('/price-quotes-store', [PriceQuoteController::class, 'storeQuote']);
