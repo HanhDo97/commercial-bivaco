@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\CustomerService;
 use Illuminate\Http\Request;
 use App\Services\PriceQuoteService;
+use App\Services\ProductService;
 
 class PriceQuoteController extends Controller
 {
     public $quoteService;
-    public function __construct(PriceQuoteService $quoteService)
-    {
+    public $productService;
+    public $customerService;
+    public function __construct(
+        PriceQuoteService $quoteService,
+        ProductService $productService,
+        CustomerService $customerService
+    ) {
         $this->quoteService = $quoteService;
     }
     public function listQuote()
@@ -20,7 +27,15 @@ class PriceQuoteController extends Controller
 
     public function showForm()
     {
-        return 'view form create';
+        // Get products and customers so Price quote can choose 1 or many either customers and products
+        $customers = $this->customerService->listCustomer();
+        $products = $this->productService->listProduct();
+
+        return [
+            'view form create',
+            'customers' => $customers,
+            'products' => $products
+        ];
     }
 
     public function storeQuote(Request $request)
