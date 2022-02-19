@@ -1,7 +1,10 @@
-Run application: docker-compose up
-
-Run Sample data:
-+ Access comercial-bivaco container
-+ Run: php artisan migrate --seed
+Run application: 
++ docker-compose up
++ cp .env.example
++ Config .env file
+Inside Container:
++ php artisan key:generate
++ php artisan migrate --seed (Create data sample)
++ php artisan config:cache
 
 Database structure: Image in public folder
